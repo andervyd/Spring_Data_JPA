@@ -4,7 +4,6 @@ import by.andervyd.spring_data_jpa.dao.EmployeeRepository;
 import by.andervyd.spring_data_jpa.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,5 +41,13 @@ public class EmployeeServiceImplementation implements EmployeeService {
     public void deleteEmployee(Long id) {
 
         employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Employee> findAllByName(String name) {
+
+        List<Employee> list = employeeRepository.findAllByName(name);
+
+        return list;
     }
 }
